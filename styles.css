@@ -7,7 +7,7 @@ body {
 /* General styles for the entire document */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.5;
     color: #333;
 }
 
@@ -34,5 +34,17 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Additional custom styles */
-/* Add your additional custom styles here */
+/* Styles for h3 */
+h3 {
+
+}
+
+/* styles for p */
+p {
+
+}
+
+/* Styles for unordered lists */
+ul {
+  list-style-type: none;
+}
