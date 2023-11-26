@@ -1,19 +1,14 @@
 /* Reset some default browser styles */
 body {
-    margin: 0;
-    padding: 0;
-}
-
-/* General styles for the entire document */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: darkolivegreen;
+  color: white;
+  margin: 0; /* this will remove default margin so the background can have color */
 }
 
 /* Styles for the header section */
 header {
-    background: #f4f4f4;
+    background: #b3b169;
     color: #333;
     padding: 10px;
     text-align: center;
@@ -34,14 +29,26 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Styles for h3 */
-h3 {
-
+h2 {
+  text-align: center;
+  margin-bottom: 5px;
 }
 
-/* styles for p */
-p {
-
+.menu {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.menu ul {
+  width: 45%;
+  list-style-type: none;
+  padding: 0;
+}
+.menu li {
+  margin-bottom: 10px;
+  /* dotted line goes here */
+  border-bottom: 1px dotted white;
+  padding-bottom: 5px;
 }
 
 /* Styles for unordered lists */
