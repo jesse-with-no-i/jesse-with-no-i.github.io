@@ -6,6 +6,26 @@
     <title>Restaurant Website</title>
     <link rel="stylesheet" href="styles.css">
     <!-- You can link to an external CSS file or include styles directly here -->
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      /* Apply styles to the container */
+    .takeout-menu {
+      column-count: 3; /* Set the number of columns */
+      column-gap: 20px; /* Set the gap between columns */
+      max-width: 600px; /* Optional: Set a maximum width for the container */
+    }
+
+    /* Apply styles to the list items */
+    li {
+      break-inside: avoid-column; /* Avoid breaking list items across columns */
+      margin-bottom: 10px; /* Add some spacing between list items */
+    }
+    </style>
+
 </head>
 
 <body>
@@ -21,6 +41,89 @@
   </header>
 
   <h3>Takeout Menu:</h3>
+  <h5>Select items to add to cart:</h5>
+  <h2>Menu</h2>
+  <div class="menu">
+
+    <ul id="selectable-list" class="takeout-menu">
+      <li data-item="Grand Slam Breakfast">Grand Slam Breakfast - $9.99</li>
+      <li data-item="Belgian Waffles">Belgian Waffles - $8.49</li>
+      <li data-item="Breakfast Burrito">Breakfast Burrito - $7.99</li>
+      <li data-item="Pancake Stack">Pancake Stack - $6.99</li>
+      <li data-item="Eggs Benedict">Eggs Benedict - $9.49</li>
+      <li data-item="French Toast">French Toast - $7.99</li>
+      <li data-item="Vegetarian Omelette">Vegetarian Omelette - $8.99</li>
+      <li data-item="Breakfast Bowl">Breakfast Bowl - $8.49</li>
+
+      <li data-item="Classic Burger">Classic Burger - $10.99</li>
+      <li data-item="Grilled Chicken Sandwich">Grilled Chicken Sandwich - $9.49</li>
+      <li data-item="Caesar Salad">Caesar Salad - $8.99</li>
+      <li data-item="BLT Sandwich">BLT Sandwich - $7.99</li>
+      <li data-item="Soup of the Day">Soup of the Day - $6.49</li>
+      <li data-item="Chicken Caesar Wrap">Chicken Caesar Wrap - $8.49</li>
+      <li data-item="Veggie Burger">Veggie Burger - $9.99</li>
+      <li data-item="Turkey Club Sandwich">Turkey Club Sandwich - $9.99</li>
+
+      <li data-item="NY Strip Steak">NY Strip Steak - $17.99</li>
+      <li data-item="Grilled Salmon">Grilled Salmon - $15.99</li>
+      <li data-item="Vegetable Stir-Fry">Vegetable Stir-Fry - $12.99</li>
+      <li data-item="Pasta Primavera">Pasta Primavera - $11.99</li>
+      <li data-item="BBQ Ribs">BBQ Ribs - $16.99</li>
+      <li data-item="Shrimp Scampi">Shrimp Scampi - $14.99</li>
+      <li data-item="Stuffed Bell Peppers">Stuffed Bell Peppers - $13.99</li>
+      <li data-item="Chicken Alfredo">Chicken Alfredo - $13.49</li>
+    </ul>
+  </div>
+
+  <h3>Your Cart:</h3>
+  <ul id="selected-items" class="selected-items"></ul>
+
+  <h6>Click to confirm order:</h6>
+  <button type="button" name="confirm-order-button" onclick="goto_confirmation_page()">Confirm</button>
+
+  <!-- Script for displaying selected items in cart -->
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the selectable list and selected items list
+      var selectableList = document.getElementById('selectable-list');
+      var selectedItemsList = document.getElementById('selected-items');
+
+      // Add click event listener to the selectable list
+      selectableList.addEventListener('click', function(event) {
+        if (event.target.tagName === 'LI') {
+          var selectedItem = event.target.dataset.item;
+
+          // Check if the item is already selected
+          if (!isSelected(selectedItem)) {
+            // Create a new list item for the selected item
+            var selectedListItem = document.createElement('li');
+            selectedListItem.textContent = selectedItem;
+
+            // Append the selected item to the selected items list
+            selectedItemsList.appendChild(selectedListItem);
+          }
+        }
+      });
+
+      // Function to check if an item is already selected
+      function isSelected(item) {
+        var selectedItems = selectedItemsList.getElementsByTagName('li');
+        for (var i = 0; i < selectedItems.length; i++) {
+          if (selectedItems[i].textContent === item) {
+            return true;
+          }
+        }
+        return false;
+      }
+    });
+
+    // Function to go to the confirmation page when the button is pressed
+    function goto_confirmation_page() {
+      window.location.href = 'order_confirmation_page.html';
+    }
+
+  </script>
 
 </body>
 
