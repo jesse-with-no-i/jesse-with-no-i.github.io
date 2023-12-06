@@ -21,20 +21,36 @@
   </header>
 
   <h3>Select a Time:</h3>
-
-  <input type="datetime-local"/>
+  <div class="datetime-error-message"></div>
+  <input type="datetime-local" class="datetime-input"/>
 
   <h3>Enter your name:</h3>
-  <input type="text" id="Name" name="Name" placeholder="Name">
-  <h3>Enter your party size:</h3>
+  <div class="name-error-message"></div>
+  <input type="text" id="name" name="name" placeholder="Enter your name">
+  <h3>Select your party size:</h3>
 
-  <!--
-  TODO: Add input fields for "name" and "party size"
-  -->
+  <select name="party" id="party">
+    <option value="one">1</option>
+    <option value="two">2</option>
+    <option value="three">3</option>
+    <option value="four">4</option>
+    <option value="five">5</option>
+    <option value="six">6</option>
+    <option value="seven">7</option>
+    <option value="eight">8</option>
+    <option value="nine">9</option>
+    <option value="ten">10</option>
+  </select>
+
+  <h3>Are you sure?</h3>
 
   <button type="button" class="confirm-reservation">
     Confirm Reservation
   </button>
+
+  <h3>Any Comments?</h3>
+  <h5>*This field is optional*</h5>
+  <input type="text" id="comment" name="comment" placeholder="Optional">
 
   <script>
   const reservationButton = document.querySelector(".confirm-reservation")
@@ -44,8 +60,30 @@
     // TODO:
     // 1. form/input validation
 
-    // 2. Render a confirmation message
+    const inputName = document.querySelector("#name");
+    const datetimeInput = document.querySelector(".datetime-input")
 
+    const nameError = document.querySelector(".name-error-message")
+    nameError.innerHTML = ""
+    const datetimeError = document.querySelector(".datetime-error-message")
+    datetimeError.innerHTML = ""
+
+    // If the input field's value property is an empty string
+    if(inputName.value == ""){
+      // step 1: find an element on the page
+      // step 2: set a property
+      const nameError = document.querySelector(".name-error-message")
+      nameError.innerHTML = "Please enter a name:"
+      return;
+    }
+
+    if(datetimeInput.value == ""){
+      const datetimeError = document.querySelector(".datetime-error-message")
+      datetimeError.innerHTML = "Please select a time:"
+      return;
+    }
+
+    location.href = "reservation_confirmation.html"
   }
 
   </script>
