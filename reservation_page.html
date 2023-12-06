@@ -22,6 +22,34 @@
 
   <h3>Select a Time:</h3>
 
+  <input type="datetime-local"/>
+
+  <h3>Enter your name:</h3>
+  <input type="text" id="Name" name="Name" placeholder="Name">
+  <h3>Enter your party size:</h3>
+
+  <!--
+  TODO: Add input fields for "name" and "party size"
+  -->
+
+  <button type="button" class="confirm-reservation">
+    Confirm Reservation
+  </button>
+
+  <script>
+  const reservationButton = document.querySelector(".confirm-reservation")
+  // Set the button's onclick property equal to an anonymous function (arrow function)
+  // reservationButton.onclick = function() {
+  reservationButton.onclick = () => {
+    // TODO:
+    // 1. form/input validation
+
+    // 2. Render a confirmation message
+
+  }
+
+  </script>
+
 </body>
 
 </html>
